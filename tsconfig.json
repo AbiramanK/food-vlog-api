@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2022",
     "module": "commonjs",
-    "lib": ["es6"],
+    "lib": ["ES2022", "esnext.asynciterable"],
     "allowJs": true,
     "outDir": "build",
-    "rootDir": "app",
+    "rootDir": ".",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   }
 }
