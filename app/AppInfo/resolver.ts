@@ -14,8 +14,8 @@ class AppInfoResolver {
   @Query(() => AppInfo)
   async info() {
     return {
-      appName: "Food Vlog",
-      appVersion: "v1.0",
+      appName: process.env.NODE_APP_NAME,
+      appVersion: process.env.NODE_APP_VERSION,
     };
   }
 }

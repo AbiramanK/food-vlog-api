@@ -1,4 +1,4 @@
-import { Query, Resolver } from "type-graphql";
+import { Resolver } from "type-graphql";
 
 @Resolver()
 class YoutubeVideoResolver {}
