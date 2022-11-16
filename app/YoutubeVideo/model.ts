@@ -1,5 +1,11 @@
 import { Sequelize, sequelize } from "./../../server/dbconfig";
-import { Table, Column, Model, PrimaryKey } from "sequelize-typescript";
+import {
+  Table,
+  Column,
+  Model,
+  PrimaryKey,
+  AutoIncrement,
+} from "sequelize-typescript";
 import { Field, ObjectType } from "type-graphql";
 
 @Table({
@@ -11,6 +17,7 @@ import { Field, ObjectType } from "type-graphql";
 @ObjectType()
 export class YoutuebVideoModel extends Model {
   @PrimaryKey
+  @AutoIncrement
   @Column
   @Field({ nullable: false })
   public declare id?: number;
