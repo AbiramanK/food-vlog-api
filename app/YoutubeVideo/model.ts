@@ -1,6 +1,6 @@
 import { Sequelize, sequelize } from "./../../server/dbconfig";
-import { Table, Column, Model } from "sequelize-typescript";
-import { Field } from "type-graphql";
+import { Table, Column, Model, PrimaryKey } from "sequelize-typescript";
+import { Field, ObjectType } from "type-graphql";
 
 @Table({
   timestamps: true,
@@ -8,34 +8,52 @@ import { Field } from "type-graphql";
   paranoid: true,
   underscored: true,
 })
+@ObjectType()
 export class YoutuebVideoModel extends Model {
+  @PrimaryKey
   @Column
-  @Field({ nullable: true })
-  video_id?: string;
+  @Field({ nullable: false })
+  public declare id?: number;
 
   @Column
   @Field({ nullable: true })
-  channel_id?: string;
+  public declare video_id?: string;
 
   @Column
   @Field({ nullable: true })
-  title?: string;
+  public declare channel_id?: string;
 
   @Column
   @Field({ nullable: true })
-  description?: string;
+  public declare title?: string;
 
   @Column
   @Field({ nullable: true })
-  thumbnail?: string;
+  public declare description?: string;
 
   @Column
   @Field({ nullable: true })
-  channel_title?: string;
+  public declare thumbnail?: string;
 
   @Column
   @Field({ nullable: true })
-  published_at?: Date;
+  public declare channel_title?: string;
+
+  @Column
+  @Field({ nullable: true })
+  public declare published_at?: Date;
+
+  @Column
+  @Field({ nullable: false })
+  public declare created_at?: Date;
+
+  @Column
+  @Field({ nullable: false })
+  public declare updated_at?: Date;
+
+  @Column
+  @Field({ nullable: true })
+  public declare deleted_at?: Date;
 }
 
 sequelize.addModels([YoutuebVideoModel]);
